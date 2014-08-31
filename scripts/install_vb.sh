@@ -7,7 +7,7 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/ap
 wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
 
 sudo apt-get update
-sudo apt-get install ros-hydro-desktop-full -y
+sudo apt-get install ros-hydro-desktop -y
 
 sudo rosdep init
 rosdep update
