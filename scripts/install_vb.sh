@@ -7,7 +7,7 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/ap
 wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
 
 sudo apt-get update
-sudo apt-get install ros-hydro-desktop-full
+sudo apt-get install ros-hydro-desktop-full -y
 
 sudo rosdep init
 rosdep update
@@ -17,20 +17,20 @@ source /opt/ros/hydro/setup.bash
 echo "export EDITOR=emacs" >> ~/.bashrc
 
 # install editors/ ssh
-sudo apt-get install ssh emacs qtcreator vim
+sudo apt-get install ssh emacs qtcreator vim -y
 
 # install ros packages and dependencies
-sudo apt-get install ros-hydro-rqt-graph ros-hydro-rqt-gui ros-hydro-rqt-plot ros-hydro-kobuki-soft ros-hydro-kobuki-keyop ros-hydro-roscpp-tutorials
+sudo apt-get install ros-hydro-rqt-graph ros-hydro-rqt-gui ros-hydro-rqt-plot ros-hydro-kobuki-soft ros-hydro-kobuki-keyop ros-hydro-roscpp-tutorials -y
 
-sudo apt-get install libboost-random1.46-dev 
+sudo apt-get install libboost-random1.46-dev -y
 
 
 # dependencies for pyqtgraph
-sudo apt-get install pip 
+sudo apt-get install pip -y
 
-sudo apt-get install libblas-dev liblapack-dev
+sudo apt-get install libblas-dev liblapack-dev -y
 
-sudo apt-get install libamd2.2.0 libblas3gf libc6 libgcc1 libgfortran3 liblapack3gf libumfpack5.4.0 libstdc++6 build-essential gfortran python-all-dev libatlas-base-dev
+sudo apt-get install libamd2.2.0 libblas3gf libc6 libgcc1 libgfortran3 liblapack3gf libumfpack5.4.0 libstdc++6 build-essential gfortran python-all-dev libatlas-base-dev -y
 
 sudo pip install pyqtgraph wstool
 
