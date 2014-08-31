@@ -34,6 +34,7 @@ sudo apt-get install libamd2.2.0 libblas3gf libc6 libgcc1 libgfortran3 liblapack
 
 sudo pip install pyqtgraph wstool
 
+
 # create catkin ws
 
 mkdir -p ~/catkin_ws/src
@@ -42,4 +43,17 @@ cd ~/catkin_ws/src
 catkin_init_workspace
 wstool init
 
-wget 
+cd ~/catkin_ws
+catkin_make
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+
+# merge rosinstall file
+cd ~/catkin_ws/src
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/hydro-2014/rosinstall/vb.rosinstall
+
+wstool merge vb.rosinstall
+wstool update
+
+cd ~/catkin_ws
+catkin_make
+
