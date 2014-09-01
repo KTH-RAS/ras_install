@@ -25,14 +25,10 @@ sudo apt-get install ros-hydro-rqt-graph ros-hydro-rqt-gui ros-hydro-rqt-plot ro
 sudo apt-get install libboost-random1.46-dev -y
 
 
-# dependencies for pyqtgraph
-sudo apt-get install pip -y
+# pip wstool and git
+sudo apt-get install git pip -y
 
-sudo apt-get install libblas-dev liblapack-dev -y
-
-sudo apt-get install libamd2.2.0 libblas3gf libc6 libgcc1 libgfortran3 liblapack3gf libumfpack5.4.0 libstdc++6 build-essential gfortran python-all-dev libatlas-base-dev -y
-
-sudo pip install pyqtgraph wstool
+sudo pip install wstool
 
 
 # create catkin ws
