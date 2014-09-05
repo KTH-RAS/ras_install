@@ -26,7 +26,7 @@ sudo apt-get install libboost-random1.46-dev -y
 
 
 # pip wstool and git
-sudo apt-get install git pip -y
+sudo apt-get install git python-pip -y
 
 sudo pip install wstool
 
