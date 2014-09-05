@@ -46,9 +46,9 @@ source ~/.bashrc
 
 # merge rosinstall file
 cd ~/catkin_ws/src
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/hydro-2014/rosinstall/vb.rosinstall
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/hydro-2014/rosinstall/lab1.rosinstall
 
-wstool merge vb.rosinstall
+wstool merge lab1.rosinstall
 wstool update
 
 cd ~/catkin_ws
