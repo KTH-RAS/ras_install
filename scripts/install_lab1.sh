@@ -55,3 +55,9 @@ cd ~/catkin_ws
 catkin_make
 source ~/.bashrc
 
+# install input synaptics for touchpad support
+sudo apt-get install xserver-xorg-input-synaptics -y
+
+# reboot the system
+sudo reboot
+
