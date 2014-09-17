@@ -7,4 +7,7 @@ wstool update phidgets_drivers imu_tools
 cd ..
 catkin_make
 
+source ~/.bashrc
+rospack profile
+
 rosrun phidgets_api setup-udev.sh
