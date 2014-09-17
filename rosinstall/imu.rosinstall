@@ -1,0 +1,4 @@
+- git: {local-name: phidgets_drivers, uri: 'https://github.com/kth-ros-pkg/phidgets_drivers.git',
+    version: hydro-fix-orientation}
+- git: {local-name: imu_tools, uri: 'https://github.com/ccny-ros-pkg/imu_tools.git',
+    version: hydro}
