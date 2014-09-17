@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd ~/catkin_ws/src
 wget https://raw.githubusercontent.com/KTH-RAS/ras_install/hydro-2014/rosinstall/imu.rosinstall
 
