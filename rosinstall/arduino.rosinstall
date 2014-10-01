@@ -1,0 +1,2 @@
+- git: {local-name: rosserial, uri: 'https://github.com/KTH-RAS/ras_arduino_inos.git',
+    version: hydro-2014}
