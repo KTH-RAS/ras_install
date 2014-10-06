@@ -20,7 +20,7 @@ echo "export EDITOR=emacs" >> ~/.bashrc
 sudo apt-get install ssh emacs qtcreator vim -y
 
 # install ros packages and other dependencies
-sudo apt-get install ros-hydro-rqt-graph ros-hydro-rqt-gui ros-hydro-rqt-plot ros-hydro-kobuki-soft ros-hydro-kobuki-keyop ros-hydro-roscpp-tutorials ros-hydro-rosserial-arduino ros-hydro-openni2-launch ros-hydro-openni2-camera ros-hydro-rgbd-launch -y
+sudo apt-get install ros-hydro-rqt-graph ros-hydro-rqt-gui ros-hydro-rqt-plot ros-hydro-kobuki-soft ros-hydro-kobuki-keyop ros-hydro-roscpp-tutorials ros-hydro-rosserial-arduino ros-hydro-rosserial-server ros-hydro-openni2-launch ros-hydro-openni2-camera ros-hydro-rgbd-launch -y
 
 sudo apt-get install libboost-random1.46-dev openjdk-7-jre ipython -y
 
