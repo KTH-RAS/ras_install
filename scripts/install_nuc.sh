@@ -69,6 +69,9 @@ rosrun rosserial_arduino make_libraries.py ~/sketchbook/libraries
 
 cp -a ~/catkin_ws/src/ras_arduino_inos/libraries/* ~/sketchbook/libraries/
 
+# copy IMU udev rules
+cd ~/catkin_ws
+rosrun phidgets_api setup-udev.sh
 
 # install arduino IDE
 cd ~/Downloads/
