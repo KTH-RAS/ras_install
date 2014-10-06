@@ -58,12 +58,11 @@ wstool update
 
 cd ~/catkin_ws
 catkin_make
-source ~/.bashrc
 
 # compile arduino libraries and copy to sketchbook folder
 mkdir -p ~/sketchbook/libraries
 
-rospack profile
+source ~/catkin_ws/devel/setup.bash
 cd ~/catkin_ws
 rosrun rosserial_arduino make_libraries.py ~/sketchbook/libraries
 
