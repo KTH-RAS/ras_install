@@ -70,7 +70,7 @@ cp -a ~/catkin_ws/src/ras_arduino_inos/libraries/* ~/sketchbook/libraries/
 
 # copy IMU udev rules
 cd ~/catkin_ws
-rosrun phidgets_api setup-udev.sh
+sudo cp build/phidgets_drivers/phidgets_api/src/libphidget21/udev/99-phidgets.rules /etc/udev/rules.d/ 
 
 # install arduino IDE
 cd ~/Downloads/
