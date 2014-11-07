@@ -1,0 +1,3 @@
+- git: {local-name: ras_espeak, uri: 'https://github.com/KTH-RAS/ras_espeak.git',
+    version: hydro-2014}
+
