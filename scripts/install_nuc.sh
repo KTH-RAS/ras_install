@@ -83,3 +83,4 @@ sudo ln -s ~/Downloads/arduino-1.0.5/arduino .
 
 # add user to dialout group
 sudo adduser ras dialout
+sudo adduser ras audio
