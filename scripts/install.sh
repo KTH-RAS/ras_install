@@ -69,7 +69,8 @@ rosrun rosserial_arduino make_libraries.py ~/Arduino/libraries
 cp -a ~/catkin_ws/src/ras_arduino_inos/libraries/* ~/Arduino/libraries/
 
 # install IMU
-./install_phidgets_imu.sh
+sudo apt-get install ros-indigo-phidgets* ros-indigo-imu-filter* -y
+sudo cp /opt/ros/indigo/share/phidgets_api/udev/99* /etc/udev/rules.d/
 
 # install arduino IDE
 cd ~/Downloads/
