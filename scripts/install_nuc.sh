@@ -46,10 +46,10 @@ source ~/.bashrc
 
 # merge rosinstall files
 cd ~/catkin_ws/src
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2015/rosinstall/lab1.rosinstall
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2015/rosinstall/vm.rosinstall
 wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2015/rosinstall/arduino.rosinstall
 
-wstool merge lab1.rosinstall
+wstool merge vm.rosinstall
 wstool merge arduino.rosinstall
 
 wstool update
@@ -71,12 +71,12 @@ sh ./install_phidgets_imu.sh
 
 # install arduino IDE
 cd ~/Downloads/
-wget http://arduino.googlecode.com/files/arduino-1.0.5-linux64.tgz
+wget ftp://130.237.218.63/arduino-1.6.5-linux64.tar.xz
 
 tar -xzf arduino*tgz
 
 cd /usr/local/bin
-sudo ln -s ~/Downloads/arduino-1.0.5/arduino .
+sudo ln -s ~/Downloads/arduino-1.6.5/arduino .
 
 # add user to dialout group
 sudo adduser ras dialout

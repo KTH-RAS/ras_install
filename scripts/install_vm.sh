@@ -47,9 +47,9 @@ source ~/.bashrc
 
 # merge rosinstall file
 cd ~/catkin_ws/src
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2015/rosinstall/lab1.rosinstall
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2015/rosinstall/vm.rosinstall
 
-wstool merge lab1.rosinstall
+wstool merge vm.rosinstall
 wstool update
 
 cd ~/catkin_ws
