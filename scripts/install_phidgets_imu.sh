@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd ~/catkin_ws/src
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/hydro-2014/rosinstall/imu.rosinstall
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2015/rosinstall/imu.rosinstall
 
 wstool merge imu.rosinstall -y
 wstool update phidgets_drivers imu_tools 
