@@ -84,6 +84,7 @@ sudo ln -s ~/Downloads/arduino-1.6.5/arduino .
 # add user to dialout group
 sudo adduser ras dialout
 sudo adduser ras audio
+sudo adduser ras video
 
 # primesense fix
 sudo cp ~/ras_install/scripts/40-libopenni2-0.rules /etc/udev/rules.d/
