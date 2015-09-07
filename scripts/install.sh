@@ -87,5 +87,6 @@ sudo adduser ras audio
 sudo adduser ras video
 
 # primesense fix
+cd ~/
 wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2015/scripts/40-libopenni2-0.rules
 sudo cp ~/40-libopenni2-0.rules /etc/udev/rules.d/
