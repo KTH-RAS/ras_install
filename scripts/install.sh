@@ -82,9 +82,10 @@ cd /usr/local/bin
 sudo ln -s ~/Downloads/arduino-1.6.5/arduino .
 
 # add user to dialout group
-sudo adduser $USER dialout
-sudo adduser $USER audio
-sudo adduser $USER video
+u=$USER
+sudo adduser $u dialout
+sudo adduser $u audio
+sudo adduser $u video
 
 # primesense fix
 cd ~/
