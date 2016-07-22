@@ -72,15 +72,6 @@ cp -a ~/catkin_ws/src/ras_arduino_inos/libraries/* ~/Arduino/libraries/
 sudo apt-get install ros-indigo-phidgets* ros-indigo-imu-filter* -y
 sudo cp /opt/ros/indigo/share/phidgets_api/udev/99* /etc/udev/rules.d/
 
-# install arduino IDE
-cd ~/Downloads/
-wget ftp://130.237.218.63/arduino-1.6.5-linux64.tar.xz
-
-tar -xJf arduino*tar.xz
-
-cd /usr/local/bin
-sudo ln -s ~/Downloads/arduino-1.6.5/arduino .
-
 # add user to dialout group
 u=$USER
 sudo adduser $u dialout
