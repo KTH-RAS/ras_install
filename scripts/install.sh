@@ -14,7 +14,6 @@ rosdep update
 
 # setup environment
 source /opt/ros/indigo/setup.bash
-echo "export EDITOR=emacs" >> ~/.bashrc
 
 # install editors/ ssh
 sudo apt-get install ssh emacs qtcreator vim -y
