@@ -44,8 +44,8 @@ source ~/.bashrc
 
 # merge rosinstall files
 cd ~/catkin_ws/src
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2015/rosinstall/vm.rosinstall
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2015/rosinstall/ras_utils.rosinstall
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/rosinstall/vm.rosinstall
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/rosinstall/ras_utils.rosinstall
 
 wstool merge vm.rosinstall
 wstool merge ras_utils.rosinstall
@@ -68,5 +68,5 @@ sudo adduser $u video
 
 # primesense fix
 cd ~/
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2015/scripts/40-libopenni2-0.rules
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/scripts/40-libopenni2-0.rules
 sudo cp ~/40-libopenni2-0.rules /etc/udev/rules.d/
