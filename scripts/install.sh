@@ -7,6 +7,7 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
 
 sudo apt-get update
+sudo apt-get upgrade -y
 sudo apt-get install ros-indigo-desktop -y
 
 sudo rosdep init
@@ -16,10 +17,10 @@ rosdep update
 source /opt/ros/indigo/setup.bash
 
 # install editors/ ssh
-sudo apt-get install ssh emacs qtcreator vim -y
+sudo apt-get install ssh emacs qtcreator vim git -y
 
 # install ros packages and other dependencies
-sudo apt-get install ros-indigo-rqt-graph ros-indigo-rqt-gui ros-indigo-rqt-plot ros-indigo-kobuki-soft ros-indigo-kobuki-keyop ros-indigo-roscpp-tutorials ros-indigo-openni2-launch ros-indigo-openni2-camera ros-indigo-rgbd-launch ros-indigo-cmake-modules -y
+sudo apt-get install ros-indigo-rqt-graph ros-indigo-rqt-gui ros-indigo-rqt-plot ros-indigo-kobuki-soft ros-indigo-kobuki-keyop ros-indigo-roscpp-tutorials ros-indigo-librealsense ros-indigo-rgbd-launch ros-indigo-cmake-modules -y
 
 sudo apt-get install libboost-random1.55-dev openjdk-7-jre ipython -y
 
@@ -41,31 +42,42 @@ catkin_make
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
-# merge rosinstall files
+# install realsense drivers
+cd /tmp
+git clone https://github.com/IntelRealSense/librealsense.git
+cd librealsense
+git checkout -b b0.9.2 v0.9.2
+sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules && udevadm trigger
+./scripts/patch-uvcvideo-ubuntu-mainline.sh
+sudo modprobe uvcvideo
+
+# install realsense packages
 cd ~/catkin_ws/src
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/rosinstall/vm.rosinstall
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/rosinstall/ras_utils.rosinstall
+git clone https://github.com/intel-ros/realsense.git
+rosdep install --skip-keys=librealsense --from-paths -i realsense/realsense_camera/src/
+cd ~/catkin_ws && cakint_make
 
-wstool merge vm.rosinstall
-wstool merge ras_utils.rosinstall
+# merge rosinstall files
+# cd ~/catkin_ws/src
+# wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/rosinstall/vm.rosinstall
+# wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/rosinstall/ras_utils.rosinstall
 
-wstool update
+# wstool merge vm.rosinstall
+# wstool merge ras_utils.rosinstall
 
-cd ~/catkin_ws
-catkin_make
-source ~/catkin_ws/devel/setup.bash
+# wstool update
+
+# cd ~/catkin_ws
+# catkin_make
+# source ~/catkin_ws/devel/setup.bash
 
 # install IMU
-sudo apt-get install ros-indigo-phidgets* ros-indigo-imu-filter* -y
-sudo cp /opt/ros/indigo/share/phidgets_api/udev/99* /etc/udev/rules.d/
+# sudo apt-get install ros-indigo-phidgets* ros-indigo-imu-filter* -y
+# sudo cp /opt/ros/indigo/share/phidgets_api/udev/99* /etc/udev/rules.d/
 
 # add user to dialout group
-u=$USER
-sudo adduser $u dialout
-sudo adduser $u audio
-sudo adduser $u video
-
-# primesense fix
-cd ~/
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/scripts/40-libopenni2-0.rules
-sudo cp ~/40-libopenni2-0.rules /etc/udev/rules.d/
+# u=$USER
+# sudo adduser $u dialout
+# sudo adduser $u audio
+# sudo adduser $u video
