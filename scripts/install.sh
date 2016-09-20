@@ -70,7 +70,10 @@ sudo pip install pyuarm
 cd ~/catkin_ws/src
 
 wget https://raw.githubusercontent.com/KTH-RAS/ras_install/test_2016/rosinstall/ras_utils.rosinstall
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/test_2016/rosinstall/ras.rosinstall
 wstool merge ras_utils.rosinstall
+wstool merge ras.rosinstall
+
 wstool update
 rosdep install --skip-keys=librealsense --from-paths -i realsense/realsense_camera/src/
 cd ~/catkin_ws/src/rplidar_ros && ./scripts/create_udev_rules.sh
