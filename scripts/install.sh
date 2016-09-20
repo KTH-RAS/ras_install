@@ -6,12 +6,12 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
 
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install ros-indigo-desktop -y
 
-sudo rosdep init
-rosdep update
+sudo rosdep init -y
+rosdep update -y
 
 # setup environment
 source /opt/ros/indigo/setup.bash
@@ -27,7 +27,7 @@ sudo apt-get install libboost-random1.55-dev openjdk-7-jre ipython -y
 # pip wstool and git
 sudo apt-get install git python-pip -y
 
-sudo pip install wstool
+sudo pip install wstool -y
 
 # create catkin ws
 
@@ -56,7 +56,7 @@ sudo modprobe uvcvideo
 cd ~/catkin_ws/src
 git clone https://github.com/intel-ros/realsense.git
 rosdep install --skip-keys=librealsense --from-paths -i realsense/realsense_camera/src/
-cd ~/catkin_ws && cakint_make
+cd ~/catkin_ws && catkin_make
 
 # merge rosinstall files
 # cd ~/catkin_ws/src
