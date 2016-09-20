@@ -13,8 +13,10 @@ sudo apt-get install ros-indigo-desktop -y
 sudo rosdep init -y
 rosdep update -y
 
+
 # setup environment
-source /opt/ros/indigo/setup.bash
+echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
+source ~/.bashrc
 
 # install editors/ ssh
 sudo apt-get install ssh emacs qtcreator vim git -y
@@ -52,32 +54,34 @@ sudo udevadm control --reload-rules && udevadm trigger
 ./scripts/patch-uvcvideo-ubuntu-mainline.sh
 sudo modprobe uvcvideo
 
-# install realsense packages
-cd ~/catkin_ws/src
-git clone https://github.com/intel-ros/realsense.git
-rosdep install --skip-keys=librealsense --from-paths -i realsense/realsense_camera/src/
-cd ~/catkin_ws && catkin_make
+# install phidget drivers
+cd /tmp
+wget http://www.phidgets.com/downloads/libraries/libphidget.tar.gz
+tar -zxvf libphidget.tar.gz
+cd libphidget-*
+./configure
+make -y
+sudo make install -y
+sudo cp udev/99-phidgets.rules /etc/udev/rules.d
+cd
 
 # merge rosinstall files
-# cd ~/catkin_ws/src
-# wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/rosinstall/vm.rosinstall
-# wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/rosinstall/ras_utils.rosinstall
+sudo pip install pyuarm
+cd ~/catkin_ws/src
 
-# wstool merge vm.rosinstall
-# wstool merge ras_utils.rosinstall
-
-# wstool update
-
-# cd ~/catkin_ws
-# catkin_make
-# source ~/catkin_ws/devel/setup.bash
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2016/rosinstall/ras_utils.rosinstall
+wstool merge ras_utils.rosinstall
+wstool update
+rosdep install --skip-keys=librealsense --from-paths -i realsense/realsense_camera/src/
+cd ~/catkin_ws/src/rplidar_ros && ./scripts/create_udev_rules.sh
+cd ~/catkin_ws && catkin_make
+source ~/catkin_ws/devel/setup.bash
 
 # install IMU
-# sudo apt-get install ros-indigo-phidgets* ros-indigo-imu-filter* -y
-# sudo cp /opt/ros/indigo/share/phidgets_api/udev/99* /etc/udev/rules.d/
+sudo apt-get install ros-indigo-imu-filter* -y
 
 # add user to dialout group
-# u=$USER
-# sudo adduser $u dialout
-# sudo adduser $u audio
-# sudo adduser $u video
+u=$USER
+sudo adduser $u dialout
+sudo adduser $u audio
+sudo adduser $u video
