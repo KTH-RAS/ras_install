@@ -10,11 +10,12 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install ros-indigo-desktop -y
 
-rosdep init -y
+sudo rosdep init -y
 rosdep update -y
 
 
 # setup environment
+source /opt/ros/indigo/setup.bash
 echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
@@ -81,19 +82,17 @@ cd ~/catkin_ws/src
 
 wget https://raw.githubusercontent.com/KTH-RAS/ras_install/test_2016/rosinstall/ras.rosinstall
 wstool merge ras.rosinstall
-
 wstool update
+
 rosdep install --skip-keys=librealsense --from-paths -i ras_realsense/realsense_camera/src/
-cd ~/catkin_ws/src/ras_rplidar_ros/scripts
-sudo mv rplidar.rules /etc/udev/rules.d
-sudo service udev reload
-sudo service udev restart
 cd ~/catkin_ws
 source ~/.bashrc
 catkin_make
 source ~/catkin_ws/devel/setup.bash
-
-
+cd ~/catkin_ws/src/ras_rplidar/scripts
+sudo mv rplidar.rules /etc/udev/rules.d
+sudo service udev reload
+sudo service udev restart
 
 # install IMU
 sudo apt-get install ros-indigo-imu-filter* -y
