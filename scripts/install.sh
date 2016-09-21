@@ -46,12 +46,15 @@ source ~/catkin_ws/devel/setup.bash
 source ~/.bashrc
 
 # install realsense drivers
-cd && mkdir Dev && cd ~/Dev
+cd
+mkdir Dev
+cd ~/Dev
 git clone https://github.com/IntelRealSense/librealsense.git
 cd librealsense
 git checkout -b b0.9.2 v0.9.2
 sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
-sudo udevadm control --reload-rules && udevadm trigger
+sudo udevadm control --reload-rules
+udevadm trigger
 ./scripts/patch-uvcvideo-ubuntu-mainline.sh
 sudo modprobe uvcvideo
 
@@ -67,6 +70,11 @@ sudo make install
 sudo cp udev/99-phidgets.rules /etc/udev/rules.d
 cd
 
+# create udev rule for arm
+touch ttyUSB.rules
+echo 'KERNEL=="ttyUSB*", MODE="0666"' >> ttyUSB.rules
+sudo mv ttyUSB.rules /etc/udev/rules.d
+
 # merge rosinstall files
 sudo pip install pyuarm
 cd ~/catkin_ws/src
@@ -76,11 +84,16 @@ wstool merge ras.rosinstall
 
 wstool update
 rosdep install --skip-keys=librealsense --from-paths -i ras_realsense/realsense_camera/src/
-cd ~/catkin_ws/src/ras_rplidar_ros && ./scripts/create_udev_rules.sh
+cd ~/catkin_ws/src/ras_rplidar_ros/scripts
+sudo mv rplidar.rules /etc/udev/rules.d
+sudo service udev reload
+sudo service udev restart
 cd ~/catkin_ws
 source ~/.bashrc
 catkin_make
 source ~/catkin_ws/devel/setup.bash
+
+
 
 # install IMU
 sudo apt-get install ros-indigo-imu-filter* -y
