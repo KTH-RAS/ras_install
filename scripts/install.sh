@@ -63,10 +63,11 @@ sudo modprobe uvcvideo
 sudo apt-get install libusb-1.0-0-dev -y
 cd ~/Dev
 wget http://www.phidgets.com/downloads/libraries/libphidget.tar.gz
-tar -zxvf libphidget.tar.gz
+tar -zxf libphidget.tar.gz
 cd libphidget-*
 ./configure
 make
+sudo make install
 sudo make install
 sudo cp udev/99-phidgets.rules /etc/udev/rules.d
 cd
