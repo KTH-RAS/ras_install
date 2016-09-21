@@ -1,6 +1,10 @@
 #!/bin/bash
 
 # install ros
+touch 10periodic
+echo 'APT::Periodic::Update-Package-Lists "0";' >> 10periodic
+echo 'APT::Periodic::Download-Upgradeable-Packages "0";' >> 10periodic
+echo 'APT::Periodic::AutocleanInterval "0";' >> 10periodic
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
@@ -68,7 +72,6 @@ cd libphidget-*
 ./configure
 make
 sudo make install
-sudo make install
 sudo cp udev/99-phidgets.rules /etc/udev/rules.d
 cd
 
@@ -96,7 +99,7 @@ sudo service udev reload
 sudo service udev restart
 
 # install IMU
-sudo apt-get install ros-indigo-imu-filter* -y
+sudo apt-get install ros-indigo-phidgets-imu ros-indigo-imu-filter* -y
 
 # add user to dialout group
 u=$USER
