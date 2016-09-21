@@ -75,7 +75,9 @@ wstool merge ras.rosinstall
 wstool update
 rosdep install --skip-keys=librealsense --from-paths -i ras_realsense/realsense_camera/src/
 cd ~/catkin_ws/src/ras_rplidar_ros && ./scripts/create_udev_rules.sh
-cd ~/catkin_ws && catkin_make
+cd ~/catkin_ws
+source ~/.bashrc
+catkin_make
 source ~/catkin_ws/devel/setup.bash
 
 # install IMU
