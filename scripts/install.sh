@@ -46,7 +46,7 @@ source ~/catkin_ws/devel/setup.bash
 source ~/.bashrc
 
 # install realsense drivers
-cd /tmp
+cd && mkdir Dev && cd ~/Dev
 git clone https://github.com/IntelRealSense/librealsense.git
 cd librealsense
 git checkout -b b0.9.2 v0.9.2
@@ -56,7 +56,8 @@ sudo udevadm control --reload-rules && udevadm trigger
 sudo modprobe uvcvideo
 
 # install phidget drivers
-cd /tmp
+sudo apt-get install libusb-1.0-0-dev -y
+cd ~/Dev
 wget http://www.phidgets.com/downloads/libraries/libphidget.tar.gz
 tar -zxvf libphidget.tar.gz
 cd libphidget-*
