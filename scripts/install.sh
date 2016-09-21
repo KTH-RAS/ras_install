@@ -22,7 +22,7 @@ source ~/.bashrc
 sudo apt-get install ssh emacs qtcreator vim git -y
 
 # install ros packages and other dependencies
-sudo apt-get install ros-indigo-sound-play ros-indigo-rqt-graph ros-indigo-rqt-gui ros-indigo-rqt-plot ros-indigo-kobuki-soft ros-indigo-kobuki-keyop ros-indigo-roscpp-tutorials ros-indigo-librealsense ros-indigo-rgbd-launch ros-indigo-cmake-modules ros-indigo-camera-info-manager -y
+sudo apt-get install ros-indigo-sound-play ros-indigo-sound-play-config ros-indigo-rqt-graph ros-indigo-rqt-gui ros-indigo-rqt-plot ros-indigo-kobuki-soft ros-indigo-kobuki-keyop ros-indigo-roscpp-tutorials ros-indigo-librealsense ros-indigo-rgbd-launch ros-indigo-cmake-modules ros-indigo-camera-info-manager -y
 
 sudo apt-get install libboost-random1.55-dev openjdk-7-jre ipython -y
 
