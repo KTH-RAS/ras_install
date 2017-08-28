@@ -12,7 +12,7 @@ sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
 
 sudo apt-get update -y
 sudo apt-get upgrade -y
-sudo apt-get install ros-indigo-desktop -y
+sudo apt-get install ros-indigo-desktop-full -y
 
 sudo rosdep init -y
 rosdep update -y
@@ -84,7 +84,7 @@ sudo mv ttyUSB.rules /etc/udev/rules.d
 sudo pip install pyuarm
 cd ~/catkin_ws/src
 
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/test_2016/rosinstall/ras.rosinstall
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2017/rosinstall/ras.rosinstall
 wstool merge ras.rosinstall
 wstool update
 
