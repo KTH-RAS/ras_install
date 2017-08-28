@@ -53,9 +53,9 @@ source ~/.bashrc
 cd
 mkdir Dev
 cd ~/Dev
-git clone https://github.com/IntelRealSense/librealsense.git
-cd librealsense
-git checkout -b b0.9.2 v0.9.2
+git clone https://github.com/KTH-RAS/librealsense-release.git
+cd librealsense-release
+git checkout -b rpm/ros-indigo-librealsense-1.12.1-1_21
 sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules
 udevadm trigger

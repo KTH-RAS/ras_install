@@ -3,9 +3,9 @@
 # installing phidgets library
 
 cd && sudo apt-get install libusb-1.0-0-dev
-cd /tmp && wget http://www.phidgets.com/downloads/libraries/libphidget.tar.gz
+cd /tmp && wget http://www.phidgets.com/downloads/phidget21/libraries/linux/libphidget/libphidget_2.1.8.20170607.tar.gz -O libphidget.tar.gz
 tar -zxvf libphidget.tar.gz
-cd libphidget-*
+cd libphidget*
 ./configure
 make
 sudo make install
