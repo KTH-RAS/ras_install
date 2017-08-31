@@ -63,16 +63,8 @@ udevadm trigger
 sudo modprobe uvcvideo
 
 # install phidget drivers
-sudo apt-get install libusb-1.0-0-dev -y
-cd ~/Dev
-wget http://www.phidgets.com/downloads/libraries/libphidget.tar.gz
-tar -zxf libphidget.tar.gz
-cd libphidget-*
-./configure
-make
-sudo make install
-sudo cp udev/99-phidgets.rules /etc/udev/rules.d
-cd
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2017/scripts/install_phidgets.sh
+sh ./install_phidgets.sh
 
 # create udev rule for arm
 touch ttyUSB.rules
