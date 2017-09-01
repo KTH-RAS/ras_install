@@ -2,7 +2,7 @@
 - git: {local-name: ras_espeak, uri: 'https://github.com/KTH-RAS/ras_espeak.git', version: indigo-2016}
 - git: {local-name: ras_msgs, uri: 'https://github.com/KTH-RAS/ras_msgs.git', version: indigo-2015}
 - git: {local-name: ras_maze, uri: 'https://github.com/KTH-RAS/ras_maze.git', version: master}
-- git: {local-name: ras_realsense, uri: 'https://github.com/intel-ros/realsense.git', version: stable}
+- git: {local-name: ras_realsense, uri: 'https://github.com/KTH-RAS/realsense.git', version: stable}
 - git: {local-name: ras_uarm, uri: 'https://github.com/KTH-RAS/UArmForROS.git', version: master}
-- git: {local-name: ras_rplidar, uri: 'https://github.com/robopeak/rplidar_ros.git', version: master}
+- git: {local-name: ras_rplidar, uri: 'https://github.com/KTH-RAS/rplidar_ros.git', version: master}
 - git: {local-name: ras_phidget, uri: 'https://github.com/KTH-RAS/ras_phidget.git', version: master}
