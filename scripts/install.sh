@@ -22,6 +22,9 @@ source /opt/ros/indigo/setup.bash
 echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
+# install build-essential
+sudo apt-get install build-essential
+
 # install editors/ ssh
 sudo apt-get install ssh emacs qtcreator vim git -y
 
