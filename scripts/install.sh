@@ -74,8 +74,13 @@ touch ttyUSB.rules
 echo 'KERNEL=="ttyUSB*", MODE="0666"' >> ttyUSB.rules
 sudo mv ttyUSB.rules /etc/udev/rules.d
 
+# install pyuarm
+cd ~/ 
+git clone https://github.com/KTH-RAS/pyuarm.git
+cd ~/pyuarm
+sudo python setup.py install
+
 # merge rosinstall files
-sudo pip install pyuarm
 cd ~/catkin_ws/src
 
 wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2017/rosinstall/ras.rosinstall
