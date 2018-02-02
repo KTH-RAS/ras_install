@@ -11,15 +11,15 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
 
 sudo apt-get update -y
-sudo apt-get install ros-indigo-desktop-full -y
+sudo apt-get install ros-kinetic-desktop-full -y
 
 sudo rosdep init -y
 rosdep update -y
 
 
 # setup environment
-source /opt/ros/indigo/setup.bash
-echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
+source /opt/ros/kinetic/setup.bash
+echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 # install build-essential
@@ -29,9 +29,9 @@ sudo apt-get install build-essential
 sudo apt-get install ssh emacs qtcreator vim git -y
 
 # install ros packages and other dependencies
-sudo apt-get install ros-indigo-sound-play ros-indigo-rqt-graph ros-indigo-rqt-gui ros-indigo-rqt-plot ros-indigo-kobuki-soft ros-indigo-kobuki-keyop ros-indigo-roscpp-tutorials ros-indigo-librealsense ros-indigo-rgbd-launch ros-indigo-cmake-modules ros-indigo-camera-info-manager -y
+sudo apt-get install ros-kinetic-sound-play ros-kinetic-rqt-graph ros-kinetic-rqt-gui ros-kinetic-rqt-plot ros-kinetic-kobuki-soft ros-kinetic-kobuki-keyop ros-kinetic-roscpp-tutorials ros-kinetic-librealsense ros-kinetic-rgbd-launch ros-kinetic-cmake-modules ros-kinetic-camera-info-manager -y
 
-sudo apt-get install libboost-random1.55-dev openjdk-7-jre ipython -y
+sudo apt-get install libboost-random1.58-dev openjdk-7-jre ipython -y
 
 # pip wstool and git
 sudo apt-get install git python-pip -y
@@ -58,7 +58,7 @@ mkdir Dev
 cd ~/Dev
 git clone https://github.com/KTH-RAS/librealsense-release.git
 cd librealsense-release
-git checkout -b rpm/ros-indigo-librealsense-1.12.1-1_21
+git checkout -b rpm/ros-kinetic-librealsense-1.12.1-0_24
 sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules
 udevadm trigger
@@ -66,7 +66,7 @@ udevadm trigger
 sudo modprobe uvcvideo
 
 # install phidget drivers
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2017/scripts/install_phidgets.sh
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/kinetic-2018/scripts/install_phidgets.sh
 sh ./install_phidgets.sh
 
 # create udev rule for arm
@@ -83,7 +83,7 @@ sudo python setup.py install
 # merge rosinstall files
 cd ~/catkin_ws/src
 
-wget https://raw.githubusercontent.com/KTH-RAS/ras_install/indigo-2017/rosinstall/ras.rosinstall
+wget https://raw.githubusercontent.com/KTH-RAS/ras_install/kinetic-2018/rosinstall/ras.rosinstall
 wstool merge ras.rosinstall
 wstool update
 
@@ -98,7 +98,7 @@ sudo service udev reload
 sudo service udev restart
 
 # install IMU
-sudo apt-get install ros-indigo-phidgets-imu ros-indigo-imu-filter* -y
+sudo apt-get install ros-kinetic-phidgets-imu ros-kinetic-imu-filter* -y
 
 # add user to dialout group
 u=$USER
